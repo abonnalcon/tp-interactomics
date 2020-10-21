@@ -66,9 +66,11 @@ On utilise un package pour faire des requêtes.
 
 ##### Quelles techniques experimentales mesurent les interactions rapportées dans cette publication?
 
-```
 
-```
+Colonne 7 : double hybrid array
+Toutes les interactions viennet de la même technique car elles sont issues de la même expérience
+Interactions : physical association
+
 
 ##### Proposer deux expressions régulières et les champs auxquels les appliquer pour
 
