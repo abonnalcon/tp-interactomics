@@ -22,7 +22,7 @@ Les fiches UNIPROT des protéines étudiées dans la publication sont disponible
 
 #### Interactomiques
 
-Vous deverez recupérer les données d'interactions étudiées dans la publication grâce au protocole [PSICQUIC](https://psicquic.github.io/PsicquicSpec_1_4_Rest.html).
+Vous devrez recupérer les données d'interactions étudiées dans la publication grâce au protocole [PSICQUIC](https://psicquic.github.io/PsicquicSpec_1_4_Rest.html).
 
 Ce protocole permet l'accès à distance à de nombreuses bases de données d'interactions protéine-protéine. Les interactions présentes dans ces bases de données sont obtenues par curation minutieuse de la littérature scientifique. Les interactions sont uniquement binaires (2 protéines) et toujours associées à la publication d'origine.
 D'autres informations peuvent également être rapportées.
@@ -33,15 +33,19 @@ Pour ce TP nous utiliserons la bases de données [Intact](https://www.ebi.ac.uk/
 Par exemple, les 100 premières interactions protéine-protéine humaines disponibles dans Intact sont accessibles via l'URL: `http://www.ebi.ac.uk/Tools/webservices/psicquic/intact/webservices/current/search/query/species:human?firstResult=0&maxResults=100`
 
 ##### Quelles sont les significations des champs suivants du format MITAB 2.X?
-
+ Voir sur https://psicquic.github.io/MITAB25Format.html  ou https://psicquic.github.io/MiqlReference.html
 Numero de champ | Signification Biologique|
  --- | --- 
-1 | 
-2 |
-3 |
-4 |
-5 |
-6 |
+1 | Unique identifier for interactor A
+2 | Unique identifier for interactor B
+3 | Alternative identifier for interactor A
+4 | Alternative identifier for interactor B
+5 | Aliases for A
+6 | Aliases for B
+7 | Interaction detection methods
+9 | Publication Identifier(s)
+11| Interaction types
+15| Confidence score
 
 ##### Utiliser le PMID de la publication pour récuperer les lignes MITAB des interactions rapportées dans l'étude.
 Une librairie pratique pour manipuler des requêtes HTTP est [requests](https://requests.readthedocs.io/en/master/), eg:
@@ -56,6 +60,9 @@ except NameError:
     httpReq = requests.get(url)
 ans = httpReq.text
 ```
+Le PubMed ID de la publication est 17446270
+On récupère les données de la publication (sont dans la base de données intact). On fait une requête pour chercher la page où il y a les données.
+On utilise un package pour faire des requêtes.
 
 ##### Quelles techniques experimentales mesurent les interactions rapportées dans cette publication?
 
